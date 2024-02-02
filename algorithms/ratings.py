@@ -57,7 +57,27 @@ def gitadora(score, chartLevel):
 
     return floor_to_ndp(true_rating, 2)
 
-def volforce(score, lamp, chartLevel):
+def jubeat(score, musicRate, chartLevel):
+    if score < 0:
+        raise Exception("Score cannot be negative. Score given: " + score)
+    if score > 1000000:
+        raise Exception("Score cannot be over 1000000. Score given: " + score)
+    if chartLevel < 0:
+        raise Exception("Chart level cannot be negative. Chart level given: " + chartLevel)
+    if musicRate < 0:
+        raise Exception("Music Rate cannot be negative. Music Rate given: " + musicRate)
+    if musicRate > 120:
+        raise Exception("Music Rate cannot be over 120. Music Rate given: " + musicRate)
+    
+    if score < 700000:
+        return 0
+    
+    flooredRate = floor_to_ndp(musicRate, 1)
+    jubility = chartLevel * 12.5 * (flooredRate / 99)
+
+    return floor_to_ndp(jubility, 1)
+
+def sdvx(score, lamp, chartLevel):
 
     if score > 10_000_000:
         raise Exception("Score cannot be greater than 10 million. Score given: " + score)
