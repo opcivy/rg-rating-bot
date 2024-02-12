@@ -5,8 +5,6 @@ from nextcord.ext import commands
 dotenv.load_dotenv()
 from algorithms import ratings
 
-TESTING_GUILD_ID = int(os.getenv("TESTGUILD"))
-
 bot = commands.Bot()
 
 @bot.event
